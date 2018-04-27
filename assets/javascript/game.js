@@ -52,16 +52,30 @@ function randomNumberGen(range,length,needOdd) {
     }
     return array1;
 }
+
+//main session start here. 
+var currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
+$("#targetNumber").html(currentTargetNum);
+$("#targetNumber").attr("class","badge badge-pill badge-secondary");
+
+
 // testing function
-var array = randomNumberGen(39,1,true);
-console.log(array);
-var array2 = randomNumberGen(12,4,true);
-console.log(array2);
-var array3 = randomNumberGen(10,1,false);
-console.log(array3);
-// function print(a){
-//     console.log(a);
+// var array = randomNumberGen(39,1,true);
+// console.log(array);
+// var array2 = randomNumberGen(12,4,true);
+// console.log(array2);
+// var array3 = randomNumberGen(10,1,false);
+// console.log(array3);
+
+//testing 2D array 
+// array2D = [[2,4],[6,3],[8,1],[9,7]]
+// function print2DArray(subArray){
+//     for(var i = 0;i < subArray.length;i++){
+//         console.log(subArray[i]);
+//     }
 // }
+// array2D.forEach(print2DArray);
 // array.forEach(print);
+
 
 
