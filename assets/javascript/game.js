@@ -55,8 +55,30 @@ function randomNumberGen(range,length,needOdd) {
 
 //main session start here. 
 var currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
+//fill in the target number section
 $("#targetNumber").html(currentTargetNum);
 $("#targetNumber").attr("class","badge badge-pill badge-secondary");
+
+// generate crystal divs starts here
+var imgPathArray =["assets/images/water01.png","assets/images/water02.png","assets/images/water03.png",
+"assets/images/water04.png","assets/images/water05.png","assets/images/water06.png"] ;
+// get 4 random number contain at least one odd number
+var crystalPointsArray = randomNumberGen(12,4,true);
+console.log("_________");
+// get 4 random number from 1-6 as index number for the img path array
+var currentImgIndexArray = randomNumberGen(6,4,false);
+console.log(currentImgIndexArray);
+
+for (var i = 0; i<4 ; i++){
+    var newCrystal = $("<img>");
+    newCrystal.attr("src",imgPathArray[parseInt(currentImgIndexArray[i])-1]);
+    newCrystal.attr("class", "col-md-3 col-sm-6 col-xs-6");
+    newCrystal.attr("data-points",crystalPointsArray[i]); 
+    // var newCrystal = "<div>"+ currentImgIndexArray[i]+"</div>"
+    $("#appendImg").append(newCrystal);
+}
+
+
 
 
 // testing function
