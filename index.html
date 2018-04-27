@@ -14,17 +14,34 @@
 
 <body>
     <div class="container">
-        <div class = "col-md-12 badge badge-primary">
-            <h1>CrystalsCollector Game</h1>
-            <div class="jumbotron">
+        <div class ="row">
+            <div class = "col-md-12 header">
+                <h1>CrystalsCollector Game</h1>
+            </div>
+        </div>
+        <div class ="row">
+            <div class="jumbotron col-md-6 ">
+                <h2 id="targetNumber">Target Number</h2>
+            </div>
+            <div class="jumbotron col-md-6 ">
+                <h2 id="score"><span id = "win">Win:</span><br><span id = "lose">Lose:</span></h2>
 
             </div>
 
-        </div>
+                <img src="assets/images/water01.png">
+                <img src="assets/images/water02.png">
+                <img src="assets/images/water03.png">
+                <img src="assets/images/water04.png">
+                <img src="assets/images/water05.png">
+                <img src="assets/images/water06.png">
             
+            
+        </div>
+
         
     </div>
 
+    <footer class="footer ">copyright kittykuma.com</footer>
 
     <!--make sure to put javascript on the bottom to alter the DOM, otherwise DOM not defined, can't alter DOM content with js method or function-->
     <script src="assets/javascript/game.js"></script>
