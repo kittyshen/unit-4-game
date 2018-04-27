@@ -4,3 +4,20 @@ Otherwise, you'll be chipping away at a giant chunk of abstraction for way too m
 
 # CrystalsCollector Game
 Pseudocode 
+Step1 Create a div to display a random number from 19 - 120 with the number showing as targetScore
+Step2 Create a div to hold the user win score and user lose score
+Step3 Create 4 div to hold 4 separate elements, called id="crystalContainer" 
+Step4 Generate 4 random number from 1 - 12 , with the number hidden
+Step5 Check to see if the 4 random number contain at least one odd number
+Step6 If at least one is an odd number then push the 4 numbers into an array called crystalPointsArray.
+Step7 Using a for loop to Generate new jQuery div elements called addCrystal
+Step8 assign addCrystal.attr("data-points") = crystalPointsArray[i]
+Step9 set .attr("class", "col-md-3 col-sm-6") to make the webpage responsive to different screen viewport
+Step10 add .attr("data-points") = crystalPointsArray[i]
+Step11 add a class of "class = crystals" for future click event to those 4 elements and 
+Step12 Append the above elements into the "crystalContainer" div in index.html
+Step13 Declare a new variable to calculate the currentPoints
+Step14 Detect the user click using jQuery on() method. get the number stored in data-points attribute
+Step15 add the data-points value to currentPoints variable
+Step16 if currentPoints > targetScore lose ++, if currentPoints = targetScore win ++
+Step17 either ending condition meet in Step16 will point the game session pointer to Step 1 and repeat
