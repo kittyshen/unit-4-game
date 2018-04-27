@@ -15,6 +15,8 @@ Step7 Using a for loop to Generate new jQuery div elements called addCrystalShie
 Step8.1 inside the addCrystalShield div Append new jQuery $("<img>") elements append it to current addCrystalShield
 Step8.2 using math remainder operator( crystalPointsArray[i]%4 )to get an index number for the img path array?
 Step8.3 step 8.2 might not work, may need to createa function to generate random index for those 4 img path.
+Step8.4 need a function genrate an array of non-repeating random numbers in a certian range, which take the and 
+number of numbers need as arguments, so it can be reused for both situation. index for img and 4 random number from 1-12  
 Step9 set .attr("class", "col-md-3 col-sm-6") to make the webpage responsive to different screen viewport
 Step10 add .attr("data-points") = crystalPointsArray[i]
 Step11 add a class of "class = crystals" to  for future click event to those 4 elements and 
