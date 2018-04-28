@@ -31,14 +31,14 @@ function randomNumberGen(range,length,needOdd) {
     var array1 = [];
     for(var i = 0; i<length; i++){
         var x = Math.floor(Math.random()*range)+1;
-        console.log(x);
+       // console.log(x);
 
         // check whether x in the array already, if not push it in
         if (array1.indexOf(x) == -1 ){
             array1.push(x);
         }
         else{
-            console.log("repeated"+x);
+         //   console.log("repeated"+x);
             i--; //if x already in the array go back repick
         }
     }
@@ -53,33 +53,71 @@ function randomNumberGen(range,length,needOdd) {
     return array1;
 }
 
-//main session start here. 
-var currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
-//fill in the target number section
-$("#targetNumber").html(currentTargetNum);
-$("#targetNumber").attr("class","badge badge-pill badge-secondary");
+$(document).ready(function() {
 
-// generate crystal divs starts here
-var imgPathArray =["assets/images/water01.png","assets/images/water02.png","assets/images/water03.png",
-"assets/images/water04.png","assets/images/water05.png","assets/images/water06.png"] ;
-// get 4 random number contain at least one odd number
-var crystalPointsArray = randomNumberGen(12,4,true);
-console.log("_________");
-// get 4 random number from 1-6 as index number for the img path array
-var currentImgIndexArray = randomNumberGen(6,4,false);
-console.log(currentImgIndexArray);
+    // declare globe varible win and lose
+    var win = 0;
+    var lose =0;
+    var currentTargetNum = 0;
+    var currentPoints = 0;
+    var imgPathArray =["assets/images/water01.png","assets/images/water02.png","assets/images/water03.png",
+    "assets/images/water04.png","assets/images/water05.png","assets/images/water06.png"] ;
 
-for (var i = 0; i<4 ; i++){
-    var newCrystal = $("<img>");
-    newCrystal.attr("src",imgPathArray[parseInt(currentImgIndexArray[i])-1]);
-    newCrystal.attr("class", "col-md-3 col-sm-6 col-xs-6");
-    newCrystal.attr("data-points",crystalPointsArray[i]); 
-    // var newCrystal = "<div>"+ currentImgIndexArray[i]+"</div>"
-    $("#appendImg").append(newCrystal);
-}
+    //main session start here. 
+    function generateNewGame(){
+        // initial the game session
+        $("#crystalContainer").empty();
+        $("#currentScore").html("");
+        currentPoints = 0;
 
+        currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
+        //fill in the target number section
+        $("#targetNumber").html(currentTargetNum);
+        $("#targetNumber").attr("class","badge badge-pill badge-secondary");
 
+        // generate crystal divs starts here
+        // get 4 random number contain at least one odd number
+        var crystalPointsArray = randomNumberGen(12,4,true);
+        console.log("____ NEW GAME _____");
+        console.log(crystalPointsArray);
+        // get 4 random number from 1-6 as index number for the img path array
+        var currentImgIndexArray = randomNumberGen(6,4,false);
+        console.log(currentImgIndexArray);
 
+        for (var i = 0; i<4 ; i++){
+            var newCrystal = $("<img>");
+            newCrystal.attr("src",imgPathArray[parseInt(currentImgIndexArray[i])-1]);
+            newCrystal.attr("class", "col-md-3 col-sm-6 col-xs-6 crystal");
+            newCrystal.attr("data-points",crystalPointsArray[i]); 
+            // var newCrystal = "<div>"+ currentImgIndexArray[i]+"</div>"
+            $("#crystalContainer").append(newCrystal);
+        }
+    }
+    generateNewGame();
+    
+    $(".crystal").on("click",function(){
+        var p= $(this).data("points");
+        console.log("p= "+p);
+
+        currentPoints += p;
+        console.log("currentPoint = "+ currentPoints);
+        if (currentPoints == parseInt(currentTargetNum) )
+        {
+            win++;
+            $("#win").text("Win: "+win);
+            generateNewGame();
+        }
+        else if  (currentPoints > currentTargetNum )
+        {
+            lose++;
+            $("#lose").text("Lose: "+lose);
+            generateNewGame();
+        }
+
+        $("#currentScore").text(currentPoints);
+    });
+
+});
 
 // testing function
 // var array = randomNumberGen(39,1,true);
