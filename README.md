@@ -25,3 +25,18 @@ UC Berkeley coding assignment 3 - CrystalsCollector Game
 * Html
 * Css
 * Bootstrap framework
+
+## Installation
+Download the zip file, unzip on the desktop, open index.html
+
+## Link to the site
+[Click me](https://kittyshen.github.io/unit-4-game/)
+
+## Author 
+[Kitty Shen ](https://github.com/kittyshen)
+
+https://github.com/kittyshen
+
+## License
+Standard MIT License
+

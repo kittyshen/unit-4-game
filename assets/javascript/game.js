@@ -53,21 +53,21 @@ function randomNumberGen(range,length,needOdd) {
     return array1;
 }
 
+// declare globe varible win and lose
+var win = 0;
+var lose =0;
+var currentTargetNum = 0;
+var currentPoints = 0;
+var imgPathArray =["assets/images/water01.png","assets/images/water02.png","assets/images/water03.png",
+"assets/images/water04.png","assets/images/water05.png","assets/images/water06.png"] ;
+
+//main session start here. 
+
 $(document).ready(function() {
 
-    // declare globe varible win and lose
-    var win = 0;
-    var lose =0;
-    var currentTargetNum = 0;
-    var currentPoints = 0;
-    var imgPathArray =["assets/images/water01.png","assets/images/water02.png","assets/images/water03.png",
-    "assets/images/water04.png","assets/images/water05.png","assets/images/water06.png"] ;
-
-    //main session start here. 
     function generateNewGame(){
         // initial the game session
         $("#crystalContainer").empty();
-        $("#currentScore").html("");
         currentPoints = 0;
 
         currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
@@ -94,14 +94,21 @@ $(document).ready(function() {
         }
     }
     generateNewGame();
-    
-    $(".crystal").on("click",function(){
+
+    // 1. $(document).on("click",".crystal",function(){
+    // 2. $(".crystal").on("click",function(){
+    //******* don't know why using option 2 the crystal won't register click after create new game session ******* //
+    //??????????????why why????????????? why need to specify document as whole clicking obj?//
+
+    $(document).on("click",".crystal",function(){
+        console.log("crystal clicked ");
+
         var p= $(this).data("points");
         console.log("p= "+p);
 
         currentPoints += p;
         console.log("currentPoint = "+ currentPoints);
-        if (currentPoints == parseInt(currentTargetNum) )
+        if (currentPoints === parseInt(currentTargetNum) )
         {
             win++;
             $("#win").text("Win: "+win);
@@ -112,9 +119,10 @@ $(document).ready(function() {
             lose++;
             $("#lose").text("Lose: "+lose);
             generateNewGame();
-        }
 
+        }
         $("#currentScore").text(currentPoints);
+
     });
 
 });
