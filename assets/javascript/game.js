@@ -31,8 +31,7 @@ function randomNumberGen(range,length,needOdd) {
     var array1 = [];
     for(var i = 0; i<length; i++){
         var x = Math.floor(Math.random()*range)+1;
-       // console.log(x);
-
+        // console.log(x);
         // check whether x in the array already, if not push it in
         if (array1.indexOf(x) == -1 ){
             array1.push(x);
@@ -47,7 +46,7 @@ function randomNumberGen(range,length,needOdd) {
         if (array1.indexOf(y) == -1 ){
             var z = Math.floor(Math.random()*length); //pick any index element in the array
             array1[z] = y; // replace that index element with the odd number y
-            needOdd = false;   
+            needOdd = false;
         }
     }
     return array1;
@@ -70,7 +69,6 @@ $(document).ready(function() {
         $("#crystalContainer").empty();
         currentPoints = 0;
         $("#currentScore").text(currentPoints);
-
         currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
         //fill in the target number section
         $("#targetNumber").html(currentTargetNum);
@@ -128,7 +126,6 @@ $(document).ready(function() {
     });
 
 });
-
 
 // testing function
 // var array = randomNumberGen(39,1,true);
