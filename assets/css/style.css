@@ -16,11 +16,11 @@ body{
 }
 
 h1{
-    font-size:2.8em;
+    font-size:2.3em;
     color:white;
 }
 h2{
-    font-size:2.5em;
+    font-size:2em;
     color:#66bce4;
 }
 h4{
@@ -44,6 +44,7 @@ h4{
   
 
 /* adjust bootstrap elements to mimic the assignment format*/
+
 .header{
     text-align: center;
     margin: 0 auto;
@@ -54,7 +55,7 @@ h4{
 .row{
     padding:0.8em;
     margin-top: 1em;
-    background-color:rgba(211, 211, 211, 0.89)
+    background-color:rgba(211, 211, 211, 0.89) !important;
 }
 .col-md-4 > .jumbotron {
     height:330px;
@@ -65,8 +66,8 @@ h4{
 .jumbotron {
     /* background-image:url("../images/water.jpg");  */
     padding:1em;
+    margin-bottom:0.5em;
     box-shadow: 0.11em 0.11em rgb(146, 146, 146);
-    /* background-color:#39687e!important; */
 }
 .container{
     min-height:100%;

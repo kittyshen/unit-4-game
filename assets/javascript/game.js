@@ -69,6 +69,7 @@ $(document).ready(function() {
         // initial the game session
         $("#crystalContainer").empty();
         currentPoints = 0;
+        $("#currentScore").text(currentPoints);
 
         currentTargetNum = parseInt(randomNumberGen (102,1,false)) +19;  //get a random number from 19-120;
         //fill in the target number section
@@ -94,13 +95,14 @@ $(document).ready(function() {
         }
     }
     generateNewGame();
-
+// document.getElementsByClassName  getElementBy
     // 1. $(document).on("click",".crystal",function(){
     // 2. $(".crystal").on("click",function(){
     //******* don't know why using option 2 the crystal won't register click after create new game session ******* //
     //??????????????why why????????????? why need to specify document as whole clicking obj?//
 
     $(document).on("click",".crystal",function(){
+
         console.log("crystal clicked ");
 
         var p= $(this).data("points");
@@ -127,6 +129,7 @@ $(document).ready(function() {
 
 });
 
+
 // testing function
 // var array = randomNumberGen(39,1,true);
 // console.log(array);
@@ -135,7 +138,7 @@ $(document).ready(function() {
 // var array3 = randomNumberGen(10,1,false);
 // console.log(array3);
 
-//testing 2D array 
+// testing 2D array 
 // array2D = [[2,4],[6,3],[8,1],[9,7]]
 // function print2DArray(subArray){
 //     for(var i = 0;i < subArray.length;i++){
@@ -144,6 +147,7 @@ $(document).ready(function() {
 // }
 // array2D.forEach(print2DArray);
 // array.forEach(print);
+
 
 
 
