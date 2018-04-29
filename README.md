@@ -26,6 +26,62 @@ UC Berkeley coding assignment 3 - CrystalsCollector Game
 * Css
 * Bootstrap framework
 
+## Key learning points
+```javascript
+$(document).ready(function(){ ... });
+```  
+* using document ready to wrap the jQuery code to make sure the web page is ready before call any jQuery script
+
+```javascript
+function randomNumberGen(range,length,needOdd) {
+    var array1 = [];
+    for(var i = 0; i<length; i++){
+        var x = Math.floor(Math.random()*range)+1;
+        if (array1.indexOf(x) == -1 ){
+            array1.push(x);
+        }
+        else{
+         //   console.log("repeated"+x);
+            i--; //if x already in the array go back repick
+        }
+    }  
+    ...
+}  
+```
+* define a function if certain feature of the code is required multiple times to save time. 
+
+```javascript
+var y = Math.floor(Math.random()*Math.round(range/2))*2+1; // generate a random odd number 
+```
+* to generate an random odd number in the range.
+
+```javascript
+    function generateNewGame(){
+        // initial the game session
+        $("#crystalContainer").empty();
+        ...
+    };
+```
+* better define a rest game function before any onclick event happen to recall after ending condition meet.
+
+```javascript
+var newCrystal = $("<img>");
+newCrystal.attr("src",imgPathArray[parseInt(currentImgIndexArray[i])-1]);
+newCrystal.attr("class", "col-md-3 col-sm-6 col-xs-6 crystal");
+newCrystal.attr("data-points",crystalPointsArray[i]); 
+$("#crystalContainer").append(newCrystal);
+```
+* recap syntax for jQuery define and append alter elements.
+
+```javascript
+// need to use document.on 
+ $(document).on("click",".crystal",function(){ ... });
+// instead of element.on 
+ $(crystal).on ("click",function(){ ... });
+```
+* UNSOLVED question. wierd thing happen after renew game session inside onclick on crystal, need to use document.on to register click on crystals .
+
+
 ## Installation
 Download the zip file, unzip on the desktop, open index.html
 
